@@ -7,3 +7,4 @@ In this project following search algorithms are implemented:
 <p>5) Genetic</p>
 <p>6) Hill Climbing</p>
 <p>7) Simulated Annealing</p>
+<p>8) Uniform Cost</p>
