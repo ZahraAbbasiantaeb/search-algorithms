@@ -1,7 +1,6 @@
 package algorithms;
 
 import java.util.Vector;
-
 import problems.MazeNode;
 import problems.MazeProblem;
 import problems.Node;
@@ -11,7 +10,6 @@ public class UniformCost {
 
 	private Vector<Node> close_list;
 	private Vector<Node> open_list;
-	
 	private Node first;
 	private Problem my_problem;
 	private String type;
@@ -30,7 +28,6 @@ public class UniformCost {
 		expand=0;
 		seenNodes=0;
 		memory=0;
-		
 		start_uniformCost_search();
 
 	}
