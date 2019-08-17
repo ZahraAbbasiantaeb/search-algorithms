@@ -21,7 +21,6 @@ public class Genetic {
 		
 		while(!my_problem.found() && x<2000) {						
 			x++;
-			//System.out.println("fitness of current individuals in generation  : "+x+" is : ");
 			my_problem.getGenerationFitness();
 			my_problem.setChildsOFGeneration();
 			my_problem.mutateChilds();
