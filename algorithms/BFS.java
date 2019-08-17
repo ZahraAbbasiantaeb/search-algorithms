@@ -1,7 +1,6 @@
 package algorithms;
 
 import java.util.Vector;
-
 import problems.Node;
 import problems.Problem;
 import problems.QueenNode;
@@ -10,7 +9,6 @@ import problems.QueenProblem;
 public class BFS {
 
 	private Vector<Node> closeList;
-
 	private Vector<Node> openList;
 	private Node first;
 	private Problem my_problem;
@@ -20,8 +18,8 @@ public class BFS {
 	private Integer seen_nodes;
 
 	public BFS(Problem my_problem , String type) {
-		this.my_problem = my_problem;
 
+		this.my_problem = my_problem;
 		closeList = new Vector<Node>();
 		this.type=type;
 		openList = new Vector<Node>();
@@ -30,7 +28,6 @@ public class BFS {
 		seen_nodes = 0;
 		first = my_problem.getFirstNode();
 		openList.add(first);
-
 		start_BFS_search();
 
 	}
@@ -40,44 +37,39 @@ public class BFS {
 	public void start_BFS_search() {
 
 		while (!openList.isEmpty()) {
-
-		
-		
+	
 			Node last = openList.firstElement();
-			//last.print();
 			System.out.println();
 			if(type.equalsIgnoreCase("graph")){
 			closeList.add(last);			
 			}
-			//System.out.println("last ones depth :"+ last.getDepth());
+			
 			openList.remove(openList.firstElement());
 			expand++;
 
 			for (int i = 0; i < last.getChild().size(); i++) {
-
 				
 				if (last.getChild().elementAt(i).isFinal()) {
 					showResult_g(last.getChild().elementAt(i));
 					return;
 				}
-				boolean what = true;
 				
-				if(type.equalsIgnoreCase("graph")){
-					
+				boolean flag = true;
 				
-				for (int j = 0; j < closeList.size(); j++) {
+				if(type.equalsIgnoreCase("graph")){									
+				
+					for (int j = 0; j < closeList.size(); j++) {
 					if (closeList.elementAt(j).isSame(last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}
 				
 				for (int j = 0; j < openList.size(); j++) {
-					
 					if (openList.elementAt(j).isSame(last.getChild().elementAt(i)))				
-						what = false;					
+						flag = false;					
 				}
 				}
-				if (what) {
-					//System.out.println("came");
+				
+				if (flag) {
 					openList.add(last.getChild().elementAt(i));
 					seen_nodes++;
 				}
@@ -105,12 +97,14 @@ public class BFS {
 		System.out.println();
 		System.out.println("****************");
 		node.print();
+		
 		while (node.getParent() != null) {
 			node = node.getParent();
 			node.print();			
 			System.out.println("****************");
 
 		}
+		
 		System.out.println();
 		System.out.println();
 		System.out.println("***************");
