@@ -1,7 +1,6 @@
 package algorithms;
 
 import java.util.Random;
-
 import problems.Node;
 import problems.Problem;
 
