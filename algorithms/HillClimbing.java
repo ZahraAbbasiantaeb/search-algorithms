@@ -2,7 +2,6 @@ package algorithms;
 
 import java.util.Random;
 import java.util.Vector;
-
 import problems.Node;
 import problems.Problem;
 
@@ -19,8 +18,6 @@ public class HillClimbing {
 		this.my_problem=my_Problem;
 		first=my_problem.getFirstNode();
 		starts=1 ;
-		
-		
 		step =0;
 		seenNode=0;
 		simple_HC(first) ;
@@ -33,9 +30,7 @@ public class HillClimbing {
 		step =0;
 		seenNode=0;
 		random_restart_hc(first);
-		
-		
-			
+	
 	}
 	
 	private void simple_HC (Node current){
