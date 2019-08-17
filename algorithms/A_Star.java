@@ -55,16 +55,16 @@ public class A_Star  {
 
 			for (int i = 0; i < last.getChild().size(); i++) {
 
-				boolean what = true;
+				boolean flag = true;
 		
 				for (int j = 0; j < close_list.size(); j++) {
 					if (close_list.elementAt(j).isSame(last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}
 				
 //				for (int j = 0; j < open_list.size(); j++) {
 //					if (open_list.elementAt(j).isSame(last.getChild().elementAt(i)) ){
-//						what = false;
+//						flag = false;
 //						if(open_list.elementAt(j).getFcost()>last.getChild().elementAt(i).getFcost()){
 //							open_list.elementAt(j).setFcost(last.getChild().elementAt(i).getFcost());
 //							open_list.elementAt(j).setParent(last.getChild().elementAt(i).getParent());
@@ -74,7 +74,7 @@ public class A_Star  {
 
 				
 
-				if (what) {
+				if (flag) {
 					seenNodes++;
 						boolean why= true;
 					for (int j = 0; j < open_list.size(); j++) {
@@ -114,10 +114,6 @@ public class A_Star  {
 		
 		
 	}
-
-
-
-	
 
 
 	private void showResult_g(Node node) {
