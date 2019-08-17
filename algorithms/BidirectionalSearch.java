@@ -26,27 +26,19 @@ public class BidirectionalSearch {
 
 		this.my_problem = my_problem;
 		this.type=type;
-		
 		closed_list_1 = new Vector<Node>();
-		
 		open_list_1 = new Vector<Node>();
-
 		closed_list_2 = new Vector<Node>();
-		
 		open_list_2 = new Vector<Node>();
-
 		memory = 0;
 		expand = 0;
 		seen_nodes = 0;
 
 		first = my_problem.getFirstNode();
 		last = my_problem.getFinalNode();
-
-		
+	
 		open_list_1.add(first);
-
 		open_list_2.add(last);
-
 		start_tree();
 		
 	}
@@ -64,34 +56,29 @@ public class BidirectionalSearch {
 			
 			for (int i = 0; i < last.getChild().size(); i++) {
 				seen_nodes++;
-				boolean what = true;
+				boolean flag = true;
 				
 				for (int j = 0; j < closed_list_1.size(); j++) {
 					if (closed_list_1.elementAt(j).isSame(
 							last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}
 				for (int j = 0; j < open_list_1.size(); j++) {
 					if (open_list_1.elementAt(j).isSame(
 							last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}
 				
 				
-				if(what)
-				open_list_1.add(last.getChild().elementAt(i));
-				
+				if(flag)
+				open_list_1.add(last.getChild().elementAt(i));		
 			}
 
 			if (open_list_2.size()+open_list_1.size()+closed_list_1.size()+closed_list_2.size()> memory) {
 				memory = open_list_2.size()+open_list_1.size()+closed_list_1.size()+closed_list_2.size();
 			}
 
-			
-			
-			
-			
-			
+
 			last = open_list_2.firstElement();
 			expand++;
 			open_list_2.remove(last);
@@ -102,24 +89,20 @@ public class BidirectionalSearch {
 				seen_nodes++;
 				open_list_2.add(last.getChild().elementAt(i));
 				
-				boolean what = true;
+				boolean flag = true;
 				for (int j = 0; j < closed_list_2.size(); j++) {
 					if (closed_list_2.elementAt(j).isSame(
 							last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}	
 				
 				for (int j = 0; j < open_list_2.size(); j++) {
 					if (open_list_2.elementAt(j).isSame(
 							last.getChild().elementAt(i)))
-						what = false;
+						flag = false;
 				}	
-				if(what)
-				open_list_2.add(last.getChild().elementAt(i));
-				
-				
-				
-				
+				if(flag)
+				open_list_2.add(last.getChild().elementAt(i));	
 				
 				for (int j = 0; j < open_list_1.size(); j++) {
 
