@@ -1,7 +1,6 @@
 package algorithms;
 
 import java.util.Vector;
-
 import problems.MazeProblem;
 import problems.Node;
 import problems.Problem;
@@ -123,7 +122,7 @@ public class A_Star  {
 
 	private void showResult_g(Node node) {
 		
-		System.out.println("This is A* search (graph): ");
+		System.out.println("this is A* search (graph): ");
 		System.out.println("this is count of expanded nodes : " + expand);
 		System.out.println("this is count of abserved nodes : " + seenNodes);
 		System.out.println("and the memory usage : " + memory);
