@@ -8,8 +8,8 @@ import problems.QueenNode;
 import problems.QueenProblem;
 
 public class DFS {
+	
 	private Vector<Node> closed_list;
-
 	private Vector<Node> open_list;
 	private Node first;
 	private Problem my_problem;
@@ -19,6 +19,7 @@ public class DFS {
 	private Integer seen_nodes;
 	private String type;
 	private boolean found ;
+	
 	public DFS(Problem my_problem, int depth, String type) {
 
 		this.depth = depth;
@@ -54,17 +55,8 @@ public class DFS {
 	}
 
 	public void start_DFS_search() {
-
-System.out.println("came");
 		
 				while (!open_list.isEmpty()) {
-					
-				
-//					if (open_list.lastElement().isFinal()) {
-//						showResult_g(open_list.lastElement());
-//						found=true;
-//						return;
-//					}
 
 					Node last = open_list.lastElement();
 					if(type.equalsIgnoreCase("graph")){
@@ -81,8 +73,8 @@ System.out.println("came");
 							found=true;
 							return;
 						}	
-						boolean what = true;
 						
+						boolean flag = true;	
 						
 						if(type.equalsIgnoreCase("graph")){
 							
@@ -91,7 +83,7 @@ System.out.println("came");
 							if (closed_list.elementAt(j).isSame(
 									last.getChild().elementAt(i))){
 							
-								what = false;
+								flag = false;
 							}
 						}
 						
@@ -101,13 +93,13 @@ System.out.println("came");
 							if (open_list.elementAt(j).isSame(
 									last.getChild().elementAt(i))){
 							
-								what = false;
+								flag = false;
 							}
 						}
 						
 						
 						}
-						if (what) {
+						if (flag) {
 							
 							if(depth==0)
 								open_list.add(last.getChild().elementAt(i));
@@ -128,6 +120,7 @@ System.out.println("came");
 	}
 
 	private void showResult_g(Node node) {
+		
 		// TODO Auto-generated method stub
 		System.out.println();
 		System.out.println("This is DFS search ("+type+") with depth : "+depth);
